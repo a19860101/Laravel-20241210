@@ -10,7 +10,8 @@ class FormController extends Controller
 {
     //
     public function index(){
-        return view('form.index');
+        $students = DB::select('select * from students');
+        return view('form.index')->with(['students' => $students]);
     }
     public function store(Request $request){
         // return $request;

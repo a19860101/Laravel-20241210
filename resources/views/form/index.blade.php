@@ -34,10 +34,10 @@
                 <td>{{$student->phone}}</td>
                 <td>{{$student->created_at}}</td>
                 <td>
-                    <form action="{{route('form.destroy',['id'=>$student->id])}}" method="post">
+                    <form action="{{route('form.destroy',['student'=>$student->id])}}" method="post">
                         @csrf
                         @method('delete')
-                        <input type="submit" value="刪除">
+                        <input type="submit" value="刪除" onclick="return confirm('確認刪除')">
                     </form>
                 </td>
             </tr>

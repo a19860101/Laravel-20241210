@@ -47,7 +47,13 @@ class FormController extends Controller
         return redirect()->route('form.index');
 
     }
-    public function destroy($id){
-        return $id;
+    public function destroy(Student $student){
+        // DB::delete('DELETE FROM students WHERE id = ?',[$id]);
+        // DB::table('students')->where('id',$id)->delete();
+
+        // Student::destroy($id);
+
+        $student->delete();
+        return redirect()->route('form.index');
     }
 }

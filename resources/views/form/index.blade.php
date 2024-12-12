@@ -39,6 +39,7 @@
                         @method('delete')
                         <input type="submit" value="刪除" onclick="return confirm('確認刪除')">
                     </form>
+                    <a href="{{route('form.edit',['student'=>$student->id])}}">編輯</a>
                 </td>
             </tr>
             @endforeach

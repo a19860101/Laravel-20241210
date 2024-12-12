@@ -56,4 +56,8 @@ class FormController extends Controller
         $student->delete();
         return redirect()->route('form.index');
     }
+    public function edit(Student $student){
+        // return $student;
+        return view('edit',compact('student'));
+    }
 }

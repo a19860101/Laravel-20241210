@@ -58,6 +58,9 @@ class FormController extends Controller
     }
     public function edit(Student $student){
         // return $student;
-        return view('edit',compact('student'));
+        return view('form.edit',compact('student'));
+    }
+    public function update(Student $student){
+        return $student;
     }
 }

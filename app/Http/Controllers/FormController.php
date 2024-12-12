@@ -47,4 +47,7 @@ class FormController extends Controller
         return redirect()->route('form.index');
 
     }
+    public function destroy($id){
+        return $id;
+    }
 }

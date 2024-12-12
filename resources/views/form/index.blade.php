@@ -25,6 +25,7 @@
                 <th>姓名</th>
                 <th>電話</th>
                 <th>註冊時間</th>
+                <th>更新時間</th>
                 <th>動作</th>
             </tr>
             @foreach($students as $student)
@@ -33,6 +34,7 @@
                 <td>{{$student->name}}</td>
                 <td>{{$student->phone}}</td>
                 <td>{{$student->created_at}}</td>
+                <td>{{$student->updated_at}}</td>
                 <td>
                     <form action="{{route('form.destroy',['student'=>$student->id])}}" method="post">
                         @csrf

@@ -60,7 +60,28 @@ class FormController extends Controller
         // return $student;
         return view('form.edit',compact('student'));
     }
-    public function update(Student $student){
-        return $student;
+    public function update(Student $student,Request $request){
+        // DB::update('update students set name=?,phone=?,email=?,updated_at=? where id=?',[
+        //     $request->name,
+        //     $request->phone,
+        //     $request->email,
+        //     now(),
+        //     $student->id
+        // ]);
+
+        // DB::table('students')->where('id',$student->id)->update([
+        //     'name'=>$request->name,
+        //     'email'=>$request->email,
+        //     'phone'=>$request->phone,
+        //     'updated_at' => now()
+        // ]);
+
+        $student->fill($request->all());
+        $student->save();
+
+
+        return redirect()->route('form.index');
+
+
     }
 }

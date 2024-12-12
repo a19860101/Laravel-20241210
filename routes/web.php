@@ -31,4 +31,5 @@ Route::get('/about/{id}',[AboutController::class,'index'])->name('about.index');
 Route::get('/about/test',[AboutController::class,'test']);
 
 Route::get('/form',[FormController::class,'index'])->name('form.index');
+Route::get('/form/create',[FormController::class,'create'])->name('form.create');
 Route::post('/form',[FormController::class,'store'])->name('form.store');

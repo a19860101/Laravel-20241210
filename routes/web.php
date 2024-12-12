@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,5 @@ Route::post('/form',[FormController::class,'store'])->name('form.store');
 Route::delete('/form/{student}',[FormController::class,'destroy'])->name('form.destroy');
 Route::get('/form/{student}/edit',[FormController::class,'edit'])->name('form.edit');
 Route::put('/form/{student}',[FormController::class,'update'])->name('form.update');
+
+Route::resource('/post',PostController::class);

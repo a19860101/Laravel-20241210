@@ -31,13 +31,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        // 檔案上傳
+        $cover = $request->file('cover')->store('images','public');
+
         //
+        $post= new Post;
+        $post->fill($request->all());
+        $post->cover = $cover;
+        $post->save();
 
-        // $post= new Post;
-        // $post->fill($request->all());
-        // $post->save();
-
-        Post::create($request->all());
+        // Post::create($request->all());
 
         return redirect()->route('post.index');
 

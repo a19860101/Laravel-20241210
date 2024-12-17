@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\FileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,6 @@ Route::get('/form/{student}/edit',[FormController::class,'edit'])->name('form.ed
 Route::put('/form/{student}',[FormController::class,'update'])->name('form.update');
 
 Route::resource('/post',PostController::class);
+
+Route::get('/file',[FileController::class,'index'])->name('file.index');
+Route::post('/file',[FileController::class,'upload'])->name('file.upload');

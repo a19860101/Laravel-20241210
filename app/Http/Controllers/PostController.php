@@ -13,7 +13,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        return view('post.index');
+        $posts = Post::orderBy('id','DESC')->get();
+        return view('post.index')->with(['posts'=>$posts]);
     }
 
     /**

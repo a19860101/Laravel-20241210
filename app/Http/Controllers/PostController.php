@@ -32,7 +32,14 @@ class PostController extends Controller
     {
         //
 
-        return $request;
+        // $post= new Post;
+        // $post->fill($request->all());
+        // $post->save();
+
+        Post::create($request->all());
+
+        return redirect()->route('post.index');
+
     }
 
     /**

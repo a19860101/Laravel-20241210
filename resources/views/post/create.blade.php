@@ -1,11 +1,15 @@
 <x-master>
     <div class="container">
         <div>
-            <form action="{{route('post.store')}}" method="post">
+            <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label for="">文章標題</label>
                     <input type="text" name="title">
+                </div>
+                <div>
+                    <label for="">文章封面</label>
+                    <input type="file" name="cover">
                 </div>
                 <div>
                     <label for="">內文</label>

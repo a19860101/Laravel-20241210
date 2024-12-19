@@ -2,6 +2,9 @@
     <div class="container mx-auto">
         <h2 class="text-2xl font-bold">{{$post->title}}</h2>
         <div>
+            <img src="{{asset('storage/'.$post->cover)}}" alt="">
+        </div>
+        <div>
             最後更新時間:{{$post->updated_at}}
         </div>
         <div>

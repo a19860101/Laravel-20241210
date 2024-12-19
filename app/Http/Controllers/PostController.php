@@ -33,7 +33,11 @@ class PostController extends Controller
     public function store(Request $request)
     {
         // 檔案上傳
-        $cover = $request->file('cover')->store('images','public');
+        if($request->file('cover')){
+            $cover = $request->file('cover')->store('images','public');
+        }else{
+            $cover=null;
+        }
 
         //
         $post= new Post;
@@ -81,6 +85,9 @@ class PostController extends Controller
 
         // }
         if($request->file('cover')){
+            if($post->cover != null){
+                Storage::disk('public')->delete($post->cover);
+            }
             $cover = $request->file('cover')->store('images','public');
             $post->fill($request->all());
             $post->cover = $cover;
@@ -101,6 +108,9 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        if($post->cover != null){
+            Storage::disk('public')->delete($post->cover);
+        }
         $post->delete();
         return redirect()->route('post.index');
     }

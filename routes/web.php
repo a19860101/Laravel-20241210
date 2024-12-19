@@ -39,7 +39,9 @@ Route::delete('/form/{student}',[FormController::class,'destroy'])->name('form.d
 Route::get('/form/{student}/edit',[FormController::class,'edit'])->name('form.edit');
 Route::put('/form/{student}',[FormController::class,'update'])->name('form.update');
 
+Route::get('/post/trash',[PostController::class,'trash'])->name('post.trash');
 Route::resource('/post',PostController::class);
+
 
 Route::get('/file',[FileController::class,'index'])->name('file.index');
 Route::post('/file',[FileController::class,'upload'])->name('file.upload');

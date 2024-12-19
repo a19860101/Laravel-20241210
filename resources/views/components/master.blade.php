@@ -11,6 +11,7 @@
     <nav class="p-4 bg-zinc-900 text-zinc-100">
         <a href="{{route('post.index')}}">首頁</a>
         <a href="{{route('post.create')}}">新增文章</a>
+        <a href="{{route('post.trash')}}">垃圾桶</a>
         <a href="#">聯絡我</a>
     </nav>
     {{$slot}}

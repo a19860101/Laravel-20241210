@@ -12,9 +12,9 @@
                     <img src="{{asset('storage/'.$post->cover)}}" alt="" class="w-full h-full object-cover">
                     @endif
                 </div>
-                <div class="p-3">
+                <div class="p-3 flex flex-col gap-4 items-start">
                     <h2>{{$post->title}}</h2>
-                    <div>最後更新時間:{{$post->updated_at}}</div>
+                    <div><small>最後更新時間:{{$post->updated_at}}</small></div>
                     <div>
                         {{Str::limit($post->body,100)}}
                     </div>

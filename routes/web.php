@@ -40,6 +40,7 @@ Route::get('/form/{student}/edit',[FormController::class,'edit'])->name('form.ed
 Route::put('/form/{student}',[FormController::class,'update'])->name('form.update');
 
 Route::get('/post/trash',[PostController::class,'trash'])->name('post.trash');
+Route::get('/post/restore/{id}',[PostController::class,'post_restore'])->name('post.restore');
 Route::resource('/post',PostController::class);
 
 

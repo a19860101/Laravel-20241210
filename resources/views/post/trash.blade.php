@@ -3,6 +3,7 @@
         @foreach($trashes as $t)
         <div>
             {{$t->title}}
+            <a href="{{route('post.restore',['id'=>$t->id])}}">還原</a>
         </div>
         @endforeach
     </div>

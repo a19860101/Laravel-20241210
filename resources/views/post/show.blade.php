@@ -16,5 +16,8 @@
             onclick="return confirm('確認刪除文章?')"
             >
         </form>
+        <a href="{{route('post.edit',$post->id)}}"
+            class="inline-block text-sm px-8 py-2 bg-teal-500 text-zinc-100 rounded"
+            >編輯</a>
     </div>
 </x-master>

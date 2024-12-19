@@ -108,9 +108,9 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
-        if($post->cover != null){
-            Storage::disk('public')->delete($post->cover);
-        }
+        // if($post->cover != null){
+        //     Storage::disk('public')->delete($post->cover);
+        // }
         $post->delete();
         return redirect()->route('post.index');
     }

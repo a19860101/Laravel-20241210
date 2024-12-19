@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Storage;
 
 class PostController extends Controller
 {
@@ -70,6 +71,21 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        // if(Storage::disk('public')->exists($post->cover)){
+        //     return '封面存在';
+        // }
+
+        // if($post->cover == null){
+        //     return '不存在';
+        // }else{
+
+        // }
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+
+        return redirect()->route('post.show',$post->id);
+
     }
 
     /**

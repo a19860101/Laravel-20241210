@@ -11,6 +11,7 @@
                 <div>
                     <label for="">文章封面</label>
                     <input type="file" name="cover">
+                    <img src="{{asset('storage/'.$post->cover)}}" alt="" class="w-12">
                 </div>
                 <div>
                     <label for="">內文</label>

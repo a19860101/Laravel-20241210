@@ -80,9 +80,16 @@ class PostController extends Controller
         // }else{
 
         // }
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->save();
+        if($request->file('cover')){
+            $cover = $request->file('cover')->store('images','public');
+            $post->fill($request->all());
+            $post->cover = $cover;
+            $post->save();
+        }else{
+            $post->title = $request->title;
+            $post->body = $request->body;
+            $post->save();
+        }
 
         return redirect()->route('post.show',$post->id);
 

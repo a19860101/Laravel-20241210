@@ -9,9 +9,9 @@
                 </div>
                 <div class="mb-3">
                     <label for="" class="block w-full">文章分類</label>
-                    <select name="" id="" class="border border-zinc-400 p-2 rounded">
+                    <select name="category_id" id="" class="border border-zinc-400 p-2 rounded">
                         @foreach($categories as $category)
-                        <option value="{{$category->title}}">{{$category->title}}</option>
+                        <option value="{{$category->id}}">{{$category->title}}</option>
                         @endforeach
                     </select>
                 </div>

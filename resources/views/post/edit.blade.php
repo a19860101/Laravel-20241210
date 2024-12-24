@@ -8,6 +8,14 @@
                     <label for="">文章標題</label>
                     <input type="text" name="title" value="{{$post->title}}" class="border border-zinc-500 rounded p-2">
                 </div>
+                <div class="mb-3">
+                    <label for="" class="block w-full">文章分類</label>
+                    <select name="category_id" id="" class="border border-zinc-400 p-2 rounded">
+                        @foreach($categories as $category)
+                        <option value="{{$category->id}}" @if($category->id == $post->category_id) selected @endif>{{$category->title}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div>
                     <label for="">文章封面</label>
                     <input type="file" name="cover">

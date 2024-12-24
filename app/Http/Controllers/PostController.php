@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-// use App\Models\Category;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Storage;
 
@@ -25,7 +25,7 @@ class PostController extends Controller
     public function create()
     {
         //
-        $categories = \App\Models\Category::get();
+        $categories = Category::get();
         return view('post.create',compact('categories'));
     }
 
@@ -68,7 +68,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
-        return view('post.edit',compact('post'));
+        $categories = Category::get();
+        return view('post.edit',compact('post','categories'));
     }
 
     /**
@@ -97,6 +98,7 @@ class PostController extends Controller
         }else{
             $post->title = $request->title;
             $post->body = $request->body;
+            $post->category_id = $request->category_id;
             $post->save();
         }
 

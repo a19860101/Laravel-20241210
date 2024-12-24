@@ -16,6 +16,10 @@
                     <h2>{{$post->title}}</h2>
                     <div><small>最後更新時間:{{$post->updated_at}}</small></div>
                     <div>
+                        <span class="inline-block p-1 text-sm bg-amber-300 rounded">{{$post->category->title}}</span>
+
+                    </div>
+                    <div>
                         {{Str::limit($post->body,100)}}
                     </div>
                     <a href="{{route('post.show',$post->id)}}" class="text-sm px-8 py-2 bg-amber-300 rounded">繼續閱讀</a>

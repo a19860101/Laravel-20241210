@@ -8,6 +8,9 @@
             最後更新時間:{{$post->updated_at}}
         </div>
         <div>
+            <span class="inline-block p-1 text-sm bg-amber-300 rounded">{{$post->category->title}}</span>
+        </div>
+        <div>
             {{$post->body}}
         </div>
         <a href="{{route('post.index')}}" class="inline-block text-sm px-8 py-2 bg-amber-300 rounded">文章列表</a>

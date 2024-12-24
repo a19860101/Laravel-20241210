@@ -13,7 +13,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return view('categories.index');
+        $categories = Category::orderBy('id','DESC')->get();
+        return view('categories.index',compact('categories'));
     }
 
     /**
@@ -31,6 +32,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        Category::create($request->all());
+        return redirect()->route('category.index');
     }
 
     /**

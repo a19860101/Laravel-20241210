@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Tag;
+
 use Illuminate\Http\Request;
 use Storage;
 
@@ -34,6 +36,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
+        $tags = explode(',',$request->tag);
+        foreach($tags as $tag){
+            Tag::firstOrCreate(['title' => $tag]);
+        }
+
+        return;
+
         // 檔案上傳
         if($request->file('cover')){
             $cover = $request->file('cover')->store('images','public');

@@ -16,6 +16,10 @@
                     </select>
                 </div>
                 <div class="mb-3">
+                    <label for="" class="block w-full">Hash Tag</label>
+                    <input type="text" name="tag" class="border border-zinc-400 p-2 rounded">
+                </div>
+                <div class="mb-3">
                     <label for="" class="block w-full">文章封面</label>
                     <input type="file" name="cover">
                 </div>

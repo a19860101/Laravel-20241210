@@ -12,6 +12,7 @@
         <a href="{{route('post.index')}}">首頁</a>
         <a href="{{route('post.create')}}">新增文章</a>
         <a href="{{route('post.trash')}}">垃圾桶</a>
+        <a href="{{route('category.index')}}">分類管理</a>
         <a href="#">聯絡我</a>
     </nav>
     {{$slot}}

@@ -5,6 +5,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,5 @@ Route::resource('/post',PostController::class);
 
 Route::get('/file',[FileController::class,'index'])->name('file.index');
 Route::post('/file',[FileController::class,'upload'])->name('file.upload');
+
+Route::resource('category',CategoryController::class);

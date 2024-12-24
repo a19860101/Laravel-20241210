@@ -1,22 +1,30 @@
 <x-master>
-    <div class="container">
-        <div>
+    <div class="container mx-auto">
+        <div class="w-1/2">
             <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <div>
-                    <label for="">文章標題</label>
-                    <input type="text" name="title">
+                <div class="mb-3">
+                    <label for="" class="block w-full">文章標題</label>
+                    <input type="text" name="title" class="border border-zinc-400 p-2 rounded">
                 </div>
-                <div>
-                    <label for="">文章封面</label>
+                <div class="mb-3">
+                    <label for="" class="block w-full">文章分類</label>
+                    <select name="" id="" class="border border-zinc-400 p-2 rounded">
+                        @foreach($categories as $category)
+                        <option value="{{$category->title}}">{{$category->title}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="block w-full">文章封面</label>
                     <input type="file" name="cover">
                 </div>
-                <div>
-                    <label for="">內文</label>
-                    <textarea name="body" id="" cols="30" rows="10"></textarea>
+                <div class="mb-3">
+                    <label for="" class="block w-full">內文</label>
+                    <textarea name="body" id="" cols="30" rows="10" class="border border-zinc-400 p-2 rounded"></textarea>
                 </div>
-                <input type="submit" value="建立文章">
-                <input type="button" value="取消" onclick="history.back()">
+                <input type="submit" value="建立文章" class="inline-block px-5 py-1 bg-teal-400">
+                <input type="button" value="取消" class="inline-block px-5 py-1 bg-red-400" onclick="history.back()">
             </form>
         </div>
     </div>

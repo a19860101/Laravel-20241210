@@ -1,13 +1,16 @@
 <x-master>
-    <h1>分類</h1>
-    <a href="{{route('category.create')}}" class="inline-block bg-blue-400 px-8 py-2">新增分類</a>
-    <div class="container">
-        <div class="divide-y">
+    <div class="container mx-auto mb-5">
+        <h1 class="text-3xl font-bold">分類</h1>
+        <a href="{{route('category.create')}}" class="inline-block bg-blue-400 px-8 py-2">新增分類</a>
+
+    </div>
+    <div class="container mx-auto">
+        <table class="w-96 border border-zinc-500">
             @foreach($categories as $category)
-            <div>
-                {{$category->title}}
-            </div>
+            <tr class=" border border-zinc-500">
+                <td>{{$category->title}}</td>
+            </tr>
             @endforeach
-        </div>
+        </table>
     </div>
 </x-master>

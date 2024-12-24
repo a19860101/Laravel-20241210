@@ -4,6 +4,11 @@
         <div>
             {{$t->title}}
             <a href="{{route('post.restore',$t->id)}}">還原</a>
+            <form action="{{route('post.forceDelete',$t->id)}}" method="post">
+                @csrf
+                @method('delete')
+                <input type="submit" value="強制刪除">
+            </form>
         </div>
         @endforeach
     </div>

@@ -120,8 +120,12 @@ class PostController extends Controller
         return view('post.trash', compact('trashes'));
     }
     public function restore($id){
+        // return $id;
         $post = Post::onlyTrashed()->find($id);
         $post->restore();
         return redirect()->route('post.index');
+    }
+    public function forceDelete($id){
+        return $id;
     }
 }

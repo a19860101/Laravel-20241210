@@ -40,7 +40,8 @@ Route::get('/form/{student}/edit',[FormController::class,'edit'])->name('form.ed
 Route::put('/form/{student}',[FormController::class,'update'])->name('form.update');
 
 Route::get('/post/trash',[PostController::class,'trash'])->name('post.trash');
-Route::get('/post/restore/{post}',[PostController::class,'restore'])->name('post.restore');
+Route::get('/post/restore/{id}',[PostController::class,'restore'])->name('post.restore');
+Route::delete('/post/forceDelete/{id}',[PostController::class,'forceDelete'])->name('post.forceDelete');
 Route::resource('/post',PostController::class);
 
 

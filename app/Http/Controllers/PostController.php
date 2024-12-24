@@ -126,6 +126,9 @@ class PostController extends Controller
         return redirect()->route('post.index');
     }
     public function forceDelete($id){
-        return $id;
+        // return $id;
+        $post = Post::onlyTrashed()->find($id);
+        $post->forceDelete();
+        return redirect()->route('post.index');
     }
 }

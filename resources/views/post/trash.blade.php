@@ -7,7 +7,7 @@
             <form action="{{route('post.forceDelete',$t->id)}}" method="post">
                 @csrf
                 @method('delete')
-                <input type="submit" value="強制刪除">
+                <input type="submit" value="強制刪除" onclick="return confirm('確認刪除?')">
             </form>
         </div>
         @endforeach

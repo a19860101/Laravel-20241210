@@ -127,7 +127,9 @@ class PostController extends Controller
         //     Storage::disk('public')->delete($post->cover);
         // }
         $post->delete();
-        return redirect()->route('post.index');
+        // return redirect()->route('post.index');
+        return redirect()->route('admin.post.list');
+
     }
 
     public function trash(Post $post){
@@ -138,13 +140,13 @@ class PostController extends Controller
         // return $id;
         $post = Post::onlyTrashed()->find($id);
         $post->restore();
-        return redirect()->route('post.index');
+        return redirect()->route('admin.post.list');
     }
     public function forceDelete($id){
         // return $id;
         $post = Post::onlyTrashed()->find($id);
         $post->forceDelete();
-        return redirect()->route('post.index');
+        return redirect()->route('admin.post.list');
     }
 
     public function list(){

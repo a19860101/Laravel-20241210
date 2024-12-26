@@ -17,8 +17,18 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('post.index')">
+                        {{ __('前台') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('admin.post.list')" :active="request()->routeIs('post')">
                         {{ __('文章管理') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('post.trash')" :active="request()->routeIs('trash')">
+                        {{ __('垃圾桶') }}
                     </x-nav-link>
                 </div>
             </div>

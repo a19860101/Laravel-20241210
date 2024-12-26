@@ -147,6 +147,7 @@ class PostController extends Controller
     }
 
     public function list(){
-        return view('admin.post.index');
+        $posts = Post::orderBy('id','DESC')->get();
+        return view('admin.post.index',compact('posts'));
     }
 }

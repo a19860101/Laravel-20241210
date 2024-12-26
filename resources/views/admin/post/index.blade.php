@@ -9,7 +9,29 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    {{ __("文章管理!") }}
+                    <h2 class="text-2xl font-bold mb-3">{{ __("文章管理!") }}</h2>
+
+                    <table class="*:p-2 border border-zinc-300 w-full">
+                        <tr class="*:border *:border-zinc-300 *:p-2">
+                            <th class="font-bold text-xl">標題</th>
+                            <th class="font-bold text-xl">建立日期</th>
+                            <th class="font-bold text-xl">動作</th>
+                        </tr>
+                        @foreach($posts as $post)
+                        <tr class="*:border *:border-zinc-300 *:p-2">
+                            <td>{{Str::limit($post->title,20)}}</td>
+                            <td>{{$post->created_at}}</td>
+                            <td class="flex gap-3">
+                                <a href="#" class="inline-block px-4 py-1 bg-teal-300 rounded text-sm">詳細資料</a>
+                                <form action="">
+                                    @csrf
+                                    @method('delete')
+                                    <input type="submit" value="刪除" class="inline-block px-4 py-1 bg-red-400 rounded text-sm">
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </table>
                 </div>
             </div>
         </div>

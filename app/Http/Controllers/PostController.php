@@ -150,4 +150,8 @@ class PostController extends Controller
         $posts = Post::orderBy('id','DESC')->get();
         return view('admin.post.index',compact('posts'));
     }
+    public function admin_edit(Post $post){
+        $categories = Category::get();
+        return view('admin.post.edit',compact('post','categories'));
+    }
 }

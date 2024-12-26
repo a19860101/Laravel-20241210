@@ -22,7 +22,7 @@
                             <td>{{Str::limit($post->title,20)}}</td>
                             <td>{{$post->created_at}}</td>
                             <td class="flex gap-3">
-                                <a href="#" class="inline-block px-4 py-1 bg-teal-300 rounded text-sm">詳細資料</a>
+                                <a href="{{route('admin.post.edit',$post->id)}}" class="inline-block px-4 py-1 bg-teal-300 rounded text-sm">詳細資料</a>
                                 <form action="">
                                     @csrf
                                     @method('delete')

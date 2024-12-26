@@ -58,3 +58,4 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/admin/post',[PostController::class,'list'])->name('admin.post.list');
+Route::get('/admin/post/{post}/edit',[PostController::class,'admin_edit'])->name('admin.post.edit');

@@ -112,7 +112,8 @@ class PostController extends Controller
             $post->save();
         }
 
-        return redirect()->route('post.show',$post->id);
+        // return redirect()->route('post.show',$post->id);
+        return redirect()->route('admin.post.edit',$post->id);
 
     }
 

@@ -15,12 +15,14 @@
                         <tr class="*:border *:border-zinc-300 *:p-2">
                             <th class="font-bold text-xl">標題</th>
                             <th class="font-bold text-xl">建立日期</th>
+                            <th class="font-bold text-xl">更新日期</th>
                             <th class="font-bold text-xl">動作</th>
                         </tr>
                         @foreach($posts as $post)
                         <tr class="*:border *:border-zinc-300 *:p-2">
                             <td>{{Str::limit($post->title,20)}}</td>
                             <td>{{$post->created_at}}</td>
+                            <td>{{$post->updated_at}}</td>
                             <td class="flex gap-3">
                                 <a href="{{route('admin.post.edit',$post->id)}}" class="inline-block px-4 py-1 bg-teal-300 rounded text-sm">詳細資料</a>
                                 <form action="">

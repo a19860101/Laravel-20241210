@@ -145,4 +145,8 @@ class PostController extends Controller
         $post->forceDelete();
         return redirect()->route('post.index');
     }
+
+    public function list(){
+        return view('admin.post.index');
+    }
 }

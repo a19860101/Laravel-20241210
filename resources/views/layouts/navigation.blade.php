@@ -27,6 +27,11 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('category.index')" :active="request()->routeIs('category')">
+                        {{ __('分類管理') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('post.trash')" :active="request()->routeIs('trash')">
                         {{ __('垃圾桶') }}
                     </x-nav-link>

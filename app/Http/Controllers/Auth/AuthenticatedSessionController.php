@@ -43,6 +43,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        // 登出跳轉位置
+        // return redirect('/');
+        return redirect()->route('post.index');
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\FormController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\CategoryController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,14 +21,7 @@ use App\Http\Controllers\CategoryController;
 Route::get('/', function () {
     return view('welcome');
 });
-// Route::get('/about/{id}', function($id){
-    // return '關於我';
-    // return view('about')->with(['id'=>$id,'msg'=>'hello']);
-    // return view('about',['id'=>$id]);
-    // return view('about',compact('id'));
-// });
 
-// Route::get('/about',[App\Http\Controllers\AboutController::class,'index']);
 Route::get('/about/{id}',[AboutController::class,'index'])->name('about.index');
 
 Route::get('/about/test',[AboutController::class,'test']);
@@ -50,3 +43,15 @@ Route::get('/file',[FileController::class,'index'])->name('file.index');
 Route::post('/file',[FileController::class,'upload'])->name('file.upload');
 
 Route::resource('category',CategoryController::class);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';

@@ -40,7 +40,6 @@ class PostController extends Controller
 
         $auth_id = Auth::id()?? null;
 
-
         // return;
 
         // 檔案上傳

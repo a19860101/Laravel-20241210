@@ -17,6 +17,7 @@
                         <span class="inline-block text-zinc-500 text-sm">{{$post->category->title}}</span>
                     </div>
                     <h2>{{$post->title}}</h2>
+                    <div>{{$post->user->name ?? '無'}}</div>
                     <div><small>最後更新時間:{{$post->updated_at}}</small></div>
                     <div class="flex gap-2">
                         @foreach($post->tags as $tag)

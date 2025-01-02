@@ -22,7 +22,7 @@
                             <td>{{Str::limit($post->title,20)}}</td>
                             <td>{{$post->created_at}}</td>
                             <td>{{$post->updated_at}}</td>
-                            @if(Auth::id() == $post->user_id)
+                            {{-- @if(Auth::id() == $post->user_id) --}}
                             <td class="flex gap-3">
                                 <a href="{{route('admin.post.edit',$post->id)}}" class="inline-block px-4 py-1 bg-teal-300 rounded text-sm">詳細資料</a>
                                 <form action="{{route('post.destroy',$post->id)}}" method="post">
@@ -31,7 +31,7 @@
                                     <input type="submit" value="刪除" class="inline-block px-4 py-1 bg-red-400 rounded text-sm">
                                 </form>
                             </td>
-                            @endif
+                            {{-- @endif --}}
                         </tr>
                         @endforeach
                     </table>

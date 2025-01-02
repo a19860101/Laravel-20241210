@@ -75,6 +75,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+        $this->authorize('view',Post::find($post->id));
         return view('post.show',compact('post'));
     }
 
@@ -84,6 +85,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
+        $this->authorize('view',Post::find($post->id));
         $categories = Category::get();
         return view('post.edit',compact('post','categories'));
     }
@@ -93,6 +95,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $this->authorize('update',Post::find($post->id));
         //
         // if(Storage::disk('public')->exists($post->cover)){
         //     return '封面存在';
@@ -138,6 +141,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        $this->authorize('delete',Post::find($post->id));
         // if($post->cover != null){
         //     Storage::disk('public')->delete($post->cover);
         // }
@@ -169,6 +173,7 @@ class PostController extends Controller
         return view('admin.post.index',compact('posts'));
     }
     public function admin_edit(Post $post){
+        $this->authorize('view',Post::find($post->id));
         $categories = Category::get();
         return view('admin.post.edit',compact('post','categories'));
     }

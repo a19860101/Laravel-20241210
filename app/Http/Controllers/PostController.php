@@ -37,12 +37,9 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-        $tags = explode(',',$request->tag);
-        foreach($tags as $tag){
-            Tag::firstOrCreate(['title' => $tag]);
-        }
 
-        return;
+
+        // return;
 
         // 檔案上傳
         if($request->file('cover')){
@@ -56,6 +53,13 @@ class PostController extends Controller
         $post->fill($request->all());
         $post->cover = $cover;
         $post->save();
+
+
+        $tags = explode(',',$request->tag);
+        foreach($tags as $tag){
+            $t = Tag::firstOrCreate(['title' => $tag]);
+            $post->tags()->attach($t);
+        }
 
         // Post::create($request->all());
 

@@ -14,6 +14,7 @@
             {{$post->body}}
         </div>
         <a href="{{route('post.index')}}" class="inline-block text-sm px-8 py-2 bg-amber-300 rounded">文章列表</a>
+        @if(Auth::id() == $post->user_id)
         <form action="{{route('post.destroy',$post->id)}}" method="post">
             @csrf
             @method('delete')
@@ -25,5 +26,6 @@
         <a href="{{route('post.edit',$post->id)}}"
             class="inline-block text-sm px-8 py-2 bg-teal-500 text-zinc-100 rounded"
             >編輯</a>
+        @endif
     </div>
 </x-master>

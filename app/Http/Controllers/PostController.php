@@ -8,6 +8,7 @@ use App\Models\Tag;
 
 use Illuminate\Http\Request;
 use Storage;
+use Auth;
 
 class PostController extends Controller
 {
@@ -37,6 +38,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
+        $auth_id = Auth::id()?? null;
 
 
         // return;
@@ -52,6 +54,7 @@ class PostController extends Controller
         $post= new Post;
         $post->fill($request->all());
         $post->cover = $cover;
+        $post->user_id = $auth_id;
         $post->save();
 
 

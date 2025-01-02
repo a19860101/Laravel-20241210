@@ -21,10 +21,16 @@
                                     <label for="" class="block w-full">標題</label>
                                     <input type="text" name="title" class="p-2 border border-zinc-300 rounded-lg w-full" value="{{$post->title}}">
                                 </div>
-                                <div>
+                                <div class="mb-3">
                                     <label for="">文章封面</label>
                                     <input type="file" name="cover">
                                     <div>{{$post->cover}}</div>
+                                </div>
+                                <div class="mb-3">
+
+                                    <label for="" class="block w-full">標籤</label>
+                                    <input type="text" name="tag" class="p-2 border border-zinc-300 rounded-lg w-full" value=" {{$post->tagStr()}}">
+
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="block w-full">分類</label>

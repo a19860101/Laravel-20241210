@@ -13,11 +13,15 @@
                     @endif
                 </div>
                 <div class="p-3 flex flex-col gap-4 items-start">
+                    <div>
+                        <span class="inline-block text-zinc-500 text-sm">{{$post->category->title}}</span>
+                    </div>
                     <h2>{{$post->title}}</h2>
                     <div><small>最後更新時間:{{$post->updated_at}}</small></div>
-                    <div>
-                        <span class="inline-block p-1 text-sm bg-amber-300 rounded">{{$post->category->title}}</span>
-
+                    <div class="flex gap-2">
+                        @foreach($post->tags as $tag)
+                        <span class="px-1 bg-teal-300 rounded text-sm">{{$tag->title}}</span>
+                        @endforeach
                     </div>
                     <div>
                         {{Str::limit($post->body,100)}}

@@ -108,12 +108,21 @@ class PostController extends Controller
             $cover = $request->file('cover')->store('images','public');
             $post->fill($request->all());
             $post->cover = $cover;
+            // $post->tags()->detach();
             $post->save();
         }else{
             $post->title = $request->title;
             $post->body = $request->body;
             $post->category_id = $request->category_id;
+            // $post->tags()->detach();
             $post->save();
+        }
+        $post->tags()->detach();
+
+        $tags = explode(',',$request->tag);
+        foreach($tags as $tag){
+            $t = Tag::firstOrCreate(['title' => $tag]);
+            $post->tags()->attach($t);
         }
 
         // return redirect()->route('post.show',$post->id);

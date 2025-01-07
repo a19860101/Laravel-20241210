@@ -17,7 +17,9 @@
             <a href="#">聯絡我</a>
         </div>
         <div class="flex gap-4">
+            @auth
             <div>{{Auth::user()->name}}</div>
+            @endauth
             @if (Route::has('login'))
 
                 @auth

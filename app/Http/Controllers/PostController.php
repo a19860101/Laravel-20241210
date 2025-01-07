@@ -9,6 +9,7 @@ use App\Models\Tag;
 use Illuminate\Http\Request;
 use Storage;
 use Auth;
+use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
 {
@@ -28,6 +29,8 @@ class PostController extends Controller
     public function create()
     {
         //
+
+        $this->authorize('create', Post::class);
         $categories = Category::get();
         return view('post.create',compact('categories'));
     }
@@ -37,6 +40,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->authorize('create', Post::class);
+
 
         $auth_id = Auth::id()?? null;
 
@@ -95,7 +101,14 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $this->authorize('update',Post::find($post->id));
+        // $this->authorize('update',Post::find($post->id));
+        $response = Gate::inspect('update', $post);
+        if($response->allowed()){
+
+        }else{
+            // echo $response->message();
+            abort(403,$response->message());
+        }
         //
         // if(Storage::disk('public')->exists($post->cover)){
         //     return '封面存在';
@@ -173,7 +186,7 @@ class PostController extends Controller
         return view('admin.post.index',compact('posts'));
     }
     public function admin_edit(Post $post){
-        $this->authorize('view',Post::find($post->id));
+        // $this->authorize('view',Post::find($post->id));
         $categories = Category::get();
         return view('admin.post.edit',compact('post','categories'));
     }

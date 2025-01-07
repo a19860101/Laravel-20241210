@@ -32,15 +32,18 @@ class PostPolicy
     public function create(User $user): bool
     {
         //
+        return $user->id;
     }
 
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Post $post): bool
+    public function update(User $user, Post $post): Response
     {
         //
-        return $user->id === $post->user_id;
+        return $user->id === $post->user_id
+            ? Response::allow()
+            : Response::deny('您沒有權限執行此動作');
     }
 
     /**
@@ -49,7 +52,7 @@ class PostPolicy
     public function delete(User $user, Post $post): bool
     {
         //
-        return $user->id === $post->user_id;
+        // return $user->id === $post->user_id;
     }
 
     /**

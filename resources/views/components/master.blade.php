@@ -11,7 +11,9 @@
     <nav class="p-4 bg-zinc-900 text-zinc-100 flex justify-between">
         <div class="flex gap-4">
             <a href="{{route('post.index')}}">首頁</a>
+            @can('admin')
             <a href="{{route('post.create')}}">新增文章</a>
+            @endcan
             {{-- <a href="{{route('post.trash')}}">垃圾桶</a> --}}
             {{-- <a href="{{route('category.index')}}">分類管理</a> --}}
             <a href="#">聯絡我</a>

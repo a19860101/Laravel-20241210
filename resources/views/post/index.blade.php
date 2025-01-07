@@ -1,4 +1,15 @@
 <x-master>
+    <div class="container">
+        <h1 class="text-4xl font-bold">
+            @can('admin')
+            管理員你好
+            @else
+            @auth
+                {{Auth::user()->name}}你好
+            @endauth
+            @endcan
+        </h1>
+    </div>
     <div class="container flex mx-auto flex-wrap">
         @foreach($posts as $post)
         <div class="w-1/4 p-3">

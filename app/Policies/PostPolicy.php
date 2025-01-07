@@ -32,7 +32,7 @@ class PostPolicy
     public function create(User $user): bool
     {
         //
-        return $user->id;
+        return $user->role === 'admin';
     }
 
     /**
@@ -52,7 +52,7 @@ class PostPolicy
     public function delete(User $user, Post $post): bool
     {
         //
-        // return $user->id === $post->user_id;
+        return $user->role === 'admin';
     }
 
     /**
